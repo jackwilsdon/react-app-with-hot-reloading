@@ -1,0 +1,35 @@
+.Counter {
+  display: inline-flex;
+}
+
+.Counter__button {
+  border: none;
+  background-color: #222;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.Counter__button:hover,
+.Counter__button:focus {
+  background-color: #555;
+  outline: none;
+}
+
+.Counter__button:active {
+  background-color: #222;
+}
+
+.Counter__button::-moz-focus-inner {
+  border: none;
+}
+
+.Counter__value {
+  min-width: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
