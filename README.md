@@ -1,4 +1,4 @@
-# react-app-with-hot-reloading [![Build Status]][Travis CI]
+# react-app-with-hot-reloading
 React + Redux + Hot Reloading = :sparkles:
 
 ## Commands
@@ -8,6 +8,3 @@ React + Redux + Hot Reloading = :sparkles:
 * `yarn test` → run the unit tests
 * `yarn lint` → run the linters
 * `yarn prettify` → prettify the code
-
-[Build Status]: https://travis-ci.org/jackwilsdon/react-app-with-hot-reloading.svg?branch=master
-[Travis CI]: https://travis-ci.org/jackwilsdon/react-app-with-hot-reloading
