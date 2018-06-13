@@ -11,5 +11,6 @@ cache:
 env:
   - SCRIPT: lint
   - SCRIPT: test
+  - SCRIPT: build
 
 script: yarn run ${SCRIPT}
