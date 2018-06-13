@@ -25,7 +25,7 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
-    "lint": "prettier-check \"src/**/*.js\" && eslint src",
+    "lint": "prettier-check \"src/**/*.js\" && eslint --max-warnings=0 src",
     "prettify": "cli-confirm \"This is a potentially destructive operation. Do you want to continue? [yN]\" && prettier --write \"src/**/*.{js,spec.js}\""
   },
   "devDependencies": {
