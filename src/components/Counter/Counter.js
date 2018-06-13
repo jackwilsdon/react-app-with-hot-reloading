@@ -1,9 +1,9 @@
+import './Counter.css';
 import { decrement, increment } from '../../actions';
-import { getValue } from '../../selectors';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import './Counter.css';
+import { getValue } from '../../selectors';
 
 export const Counter = ({ onSubtract, onAdd, value }) => (
   <div className="Counter">

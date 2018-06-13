@@ -1,5 +1,5 @@
-import React from 'react';
 import { Counter } from './Counter';
+import React from 'react';
 import noop from 'lodash/noop';
 import renderer from 'react-test-renderer';
 

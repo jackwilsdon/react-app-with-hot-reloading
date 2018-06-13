@@ -1,5 +1,5 @@
-import React from 'react';
 import App from './App';
+import React from 'react';
 import { createStore } from 'redux';
 import identity from 'lodash/identity';
 import renderer from 'react-test-renderer';

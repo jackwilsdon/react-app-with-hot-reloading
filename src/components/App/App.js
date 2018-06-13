@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import logo from '../../assets/logo.svg';
 import './App.css';
+import React, { Component } from 'react';
 import Counter from '../Counter';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
+import logo from '../../assets/logo.svg';
 
 class App extends Component {
   static propTypes = {

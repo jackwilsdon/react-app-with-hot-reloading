@@ -1,5 +1,5 @@
 import * as actions from '../actions';
-import pickBy from 'lodash/pickBy';
 import isFunction from 'lodash/isFunction';
+import pickBy from 'lodash/pickBy';
 
 export default pickBy(actions, action => isFunction(action));

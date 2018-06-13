@@ -1,5 +1,5 @@
-import { createStore } from 'redux';
 import actions from './actions';
+import { createStore } from 'redux';
 import reducer from './reducer';
 
 export default (initialState = {}) => {
