@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.Counter__button::-moz-focus-inner {
+  border: none;
+}
+
 .Counter__button:hover,
 .Counter__button:focus {
   background-color: #555;
@@ -19,10 +23,6 @@
 
 .Counter__button:active {
   background-color: #222;
-}
-
-.Counter__button::-moz-focus-inner {
-  border: none;
 }
 
 .Counter__value {
