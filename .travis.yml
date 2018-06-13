@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - node
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+env:
+  - SCRIPT: lint
+  - SCRIPT: test
+
+script: yarn run ${SCRIPT}
