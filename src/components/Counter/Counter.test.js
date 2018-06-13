@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Counter } from './Counter';
-import { createStore } from 'redux';
 import noop from 'lodash/noop';
 import renderer from 'react-test-renderer';
 
