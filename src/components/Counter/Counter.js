@@ -1,4 +1,5 @@
-import { decrement, getValue, increment } from '../../ducks';
+import { decrement, increment } from '../../actions';
+import { getValue } from '../../selectors';
 import React from 'react';
 import { connect } from 'react-redux';
 import './Counter.css';

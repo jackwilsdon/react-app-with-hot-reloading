@@ -1,4 +1,4 @@
+import * as reducers from '../reducers';
 import { combineReducers } from 'redux';
-import counter from '../counter/ducks';
 
-export default combineReducers({ counter });
+export default combineReducers(reducers);

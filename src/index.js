@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import HotApp from './app/components/HotApp';
+import HotApp from './components/HotApp';
 import { createStore } from './redux';
 
 const store = createStore();

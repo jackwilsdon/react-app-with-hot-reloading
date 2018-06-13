@@ -1,6 +1,5 @@
-import { DECREMENT, INCREMENT, decrement, increment } from './actions';
-import reducer from './reducer';
-import each from 'jest-each';
+import { DECREMENT, INCREMENT, decrement, increment } from '../actions';
+import reducer from './counter';
 
 it(`should increment the counter when ${INCREMENT} is dispatched`, () => {
   expect(reducer(-1234, increment())).toEqual(-1233);

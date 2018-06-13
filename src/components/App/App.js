@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import logo from '../../../assets/logo.svg';
+import logo from '../../assets/logo.svg';
 import './App.css';
-import { Counter } from '../../../counter';
+import Counter from '../Counter';
 import { Provider } from 'react-redux';
 
 class App extends Component {
