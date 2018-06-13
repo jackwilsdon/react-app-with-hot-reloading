@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App-header"
+  >
+    <img
+      alt="logo"
+      className="App-logo"
+      src="logo.svg"
+    />
+    <h1
+      className="App-title"
+    >
+      Welcome to React
+    </h1>
+  </header>
+  <div
+    className="App-intro"
+  >
+    <div
+      className="Counter"
+    >
+      <button
+        className="Counter__button"
+        onClick={[Function]}
+      >
+        -
+      </button>
+      <div
+        className="Counter__value"
+      />
+      <button
+        className="Counter__button"
+        onClick={[Function]}
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;
