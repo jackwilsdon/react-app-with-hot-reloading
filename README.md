@@ -1,7 +1,5 @@
 # react-app-with-hot-reloading [![Build Status]][Travis CI]
-
 React + Redux + Hot Reloading = :sparkles:
-
 
 ## Commands
 * `yarn` → install dependencies
