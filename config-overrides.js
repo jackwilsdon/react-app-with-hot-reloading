@@ -8,7 +8,10 @@ const rewireStyleLint = (config, env) => {
     ? config
     : {
         ...config,
-        plugins: [...(config.plugins || []), new StyleLintPlugin()],
+        plugins: [
+          ...(config.plugins || []),
+          new StyleLintPlugin({ files: ['src/**/*.css'] }),
+        ],
       };
 };
 
