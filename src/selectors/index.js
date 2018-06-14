@@ -1,3 +1,4 @@
 import * as counter from './counter';
+import * as router from './router';
 
-export { counter };
+export { counter, router };
