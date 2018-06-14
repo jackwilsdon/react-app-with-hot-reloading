@@ -1,27 +1,44 @@
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import actions from './actions';
-import { createStore } from 'redux';
-import reducer from './reducer';
+import { connectRoutes } from 'redux-first-router';
+import createBrowserHistory from 'history/createBrowserHistory';
+import reducers from './reducers';
+import routes from '../router/routes';
+
+const composeEnhancers =
+  process.env.NODE_ENV === 'production' ||
+  !window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? compose
+    : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+        actionCreators: actions,
+      });
 
 export default (initialState = {}) => {
-  // Create a new store with the root reducer, initial state we've provided
-  // and the redux devtools extension (if we're in development).
+  const history = createBrowserHistory();
+  const { reducer, middleware, enhancer } = connectRoutes(history, routes);
+
+  const rootReducer = combineReducers({
+    ...reducers,
+    location: reducer,
+  });
+
   const store = createStore(
-    reducer,
+    rootReducer,
     initialState,
-    process.env.NODE_ENV === 'production' ||
-    !window.__REDUX_DEVTOOLS_EXTENSION__
-      ? undefined
-      : window.__REDUX_DEVTOOLS_EXTENSION__({
-          actionCreators: actions,
-        }),
+    composeEnhancers(enhancer, applyMiddleware(middleware)),
   );
 
   // Support reloading reducers if hot reloading is enabled.
   if (module.hot) {
-    module.hot.accept('./reducer', () => {
-      const reducer = require('./reducer').default;
+    module.hot.accept('./reducers', () => {
+      const reducers = require('./reducers').default;
 
-      store.replaceReducer(reducer);
+      const rootReducer = combineReducers({
+        ...reducers,
+        location: reducer,
+      });
+
+      store.replaceReducer(rootReducer);
     });
   }
 
