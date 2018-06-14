@@ -3,7 +3,7 @@ import { decrement, increment } from '../../actions';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
-import { getValue } from '../../selectors';
+import { getValue } from '../../selectors/counter';
 
 export const Counter = ({ onSubtract, onAdd, value }) => (
   <div className="Counter">

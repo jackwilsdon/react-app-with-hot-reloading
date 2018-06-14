@@ -1,1 +1,3 @@
-export { default as getValue } from './getValue';
+import * as counter from './counter';
+
+export { counter };
