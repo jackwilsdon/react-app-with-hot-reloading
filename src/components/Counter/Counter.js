@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getValue } from '../../selectors/counter';
 
-export const Counter = ({ onSubtract, onAdd, value }) => (
+const Counter = ({ onSubtract, onAdd, value }) => (
   <div className="Counter">
     <button className="Counter__button" onClick={() => onSubtract()}>
       -
@@ -35,6 +35,8 @@ const mapDispatchToProps = {
   onAdd: increment,
   onSubtract: decrement,
 };
+
+export { Counter };
 
 export default connect(
   mapStateToProps,
