@@ -1,5 +1,5 @@
 {
-  "name": "application",
+  "name": "react-app-with-hot-reloading",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
