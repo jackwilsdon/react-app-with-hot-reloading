@@ -896,6 +896,12 @@ babel-plugin-transform-exponentiation-operator@^6.22.0:
     babel-plugin-syntax-exponentiation-operator "^6.8.0"
     babel-runtime "^6.22.0"
 
+babel-plugin-transform-export-default-name@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-export-default-name/-/babel-plugin-transform-export-default-name-2.0.4.tgz#e9df24350e0234e70dac2b47bd874a49596650d2"
+  dependencies:
+    camelcase "^4.0.0"
+
 babel-plugin-transform-flow-strip-types@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-flow-strip-types/-/babel-plugin-transform-flow-strip-types-6.22.0.tgz#84cb672935d43714fdc32bce84568d87441cf7cf"
