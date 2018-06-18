@@ -12,6 +12,13 @@ exports[`renders correctly 1`] = `
     }
   }
 >
-  <Connect(Switch) />
+  <Connect(Switch)
+    components={
+      Object {
+        "routes/counter": [Function],
+        "routes/home": [Function],
+      }
+    }
+  />
 </Provider>
 `;
