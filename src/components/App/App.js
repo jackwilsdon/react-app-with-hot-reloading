@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import Switch from '../Switch';
+import components from '../../router/components';
 
 class App extends Component {
   static propTypes = {
@@ -12,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={this.props.store}>
-        <Switch />
+        <Switch components={components} />
       </Provider>
     );
   }

@@ -1,9 +1,27 @@
 import React, { Fragment } from 'react';
-import components from '../router/components';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getType } from '../selectors/router';
 
-const Switch = ({ type }) => React.createElement(components[type] || Fragment);
+const Switch = ({ components, type }) => {
+  const Component = components[type];
+
+  return Component ? (
+    <Component />
+  ) : (
+    <Fragment>
+      Can't find component for type <code>{type}</code>
+    </Fragment>
+  );
+};
+
+Switch.propTypes = {
+  components: PropTypes.objectOf(PropTypes.any),
+};
+
+Switch.defaultProps = {
+  components: {},
+};
 
 const mapStateToProps = state => ({ type: getType(state) });
 const mapDispatchToProps = {};
