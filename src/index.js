@@ -1,9 +1,9 @@
 import './index.css';
 import HotApp from './components/HotApp';
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { createStore } from './redux';
+import { render } from 'react-dom';
 
 const store = createStore();
 
-ReactDOM.render(<HotApp store={store} />, document.getElementById('root'));
+render(<HotApp store={store} />, document.getElementById('root'));
