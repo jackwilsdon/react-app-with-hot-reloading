@@ -2,6 +2,7 @@ const rewireEslint = require('react-app-rewire-eslint');
 const rewireHotLoader = require('react-app-rewire-hot-loader');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const partial = require('lodash/partial');
+const partialRight = require('lodash/partialRight');
 const { injectBabelPlugin } = require('react-app-rewired');
 
 // Custom "flow" function for passing environment to every function.
@@ -24,7 +25,9 @@ const rewireStyleLint = (config, env) => {
 };
 
 module.exports = flow(
-  rewireEslint,
+  partialRight(rewireEslint, options => {
+    options.eslintPath = require.resolve('eslint');
+  }),
   rewireHotLoader,
   rewireStyleLint,
   partial(injectBabelPlugin, 'transform-export-default-name'),
