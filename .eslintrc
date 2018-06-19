@@ -27,7 +27,7 @@
     "import/no-extraneous-dependencies": [
       "error",
       {
-        "devDependencies": ["**/*.{spec,test}.js"],
+        "devDependencies": ["src/setupTests.js", "**/*.{spec,test}.js"],
         "optionalDependencies": false
       }
     ],

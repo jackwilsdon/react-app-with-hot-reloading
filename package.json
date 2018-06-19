@@ -32,11 +32,18 @@
     "lint": "prettier-check \"src/**/*.js\" && eslint --max-warnings=0 src && stylelint \"src/**/*.css\"",
     "prettify": "cli-confirm \"This is a potentially destructive operation. Do you want to continue? [yN]\" && prettier --write \"src/**/*.{js,spec.js}\""
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "devDependencies": {
     "cli-confirm": "^1.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "prettier": "^1.13.5",
     "prettier-check": "^2.0.0",
-    "react-test-renderer": "^16.4.1",
     "stylelint": "^8.0.0"
   }
 }

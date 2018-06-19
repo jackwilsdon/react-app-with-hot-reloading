@@ -1,45 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
-  className="App"
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
 >
-  <header
-    className="App-header"
-  >
-    <img
-      alt="logo"
-      className="App-logo"
-      src="logo.svg"
-    />
-    <h1
-      className="App-title"
-    >
-      Welcome to React
-    </h1>
-  </header>
   <div
-    className="App-intro"
+    className="App"
   >
-    <div
-      className="Counter"
+    <header
+      className="App-header"
     >
-      <button
-        className="Counter__button"
-        onClick={[Function]}
-      >
-        -
-      </button>
-      <div
-        className="Counter__value"
+      <img
+        alt="logo"
+        className="App-logo"
+        src="logo.svg"
       />
-      <button
-        className="Counter__button"
-        onClick={[Function]}
+      <h1
+        className="App-title"
       >
-        +
-      </button>
+        Welcome to React
+      </h1>
+    </header>
+    <div
+      className="App-intro"
+    >
+      <Connect(Counter) />
     </div>
   </div>
-</div>
+</Provider>
 `;

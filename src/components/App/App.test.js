@@ -2,11 +2,11 @@ import App from './App';
 import React from 'react';
 import { createStore } from 'redux';
 import identity from 'lodash/identity';
-import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 it('renders correctly', () => {
   const store = createStore(identity, {});
-  const tree = renderer.create(<App store={store} />).toJSON();
+  const tree = shallow(<App store={store} />);
 
   expect(tree).toMatchSnapshot();
 });
