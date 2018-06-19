@@ -15,8 +15,9 @@ exports[`renders correctly 1`] = `
   <Connect(Switch)
     components={
       Object {
-        "routes/counter": [Function],
+        "routes/firstPage": [Function],
         "routes/home": [Function],
+        "routes/secondPage": [Function],
       }
     }
   />
