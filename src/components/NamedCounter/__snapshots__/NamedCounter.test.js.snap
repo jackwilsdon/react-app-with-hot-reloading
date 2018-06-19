@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="NamedCounter"
+>
+  <label
+    className="NamedCounter__label"
+  >
+    Counter name
+  </label>
+  <div
+    className="NamedCounter__counter"
+  >
+    <Connect(Counter)
+      identifier="default"
+      onAdd={[Function]}
+      onSubtract={[Function]}
+      value={12345}
+    />
+  </div>
+</div>
+`;
