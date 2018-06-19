@@ -9,8 +9,11 @@ cache:
     - node_modules
 
 env:
-  - SCRIPT: lint
-  - SCRIPT: test
-  - SCRIPT: build
+  - NODE_ENV: development
+    SCRIPT: lint
+  - NODE_ENV: development
+    SCRIPT: test
+  - NODE_ENV: production
+    SCRIPT: build
 
 script: yarn run ${SCRIPT}
