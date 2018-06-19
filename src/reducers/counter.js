@@ -1,11 +1,17 @@
 import { DECREMENT, INCREMENT } from '../actions';
 
-export default (state = 0, { type }) => {
+export default (state = {}, { type, payload }) => {
   switch (type) {
     case INCREMENT:
-      return state + 1;
+      return {
+        ...state,
+        [payload]: (state[payload] || 0) + 1,
+      };
     case DECREMENT:
-      return state - 1;
+      return {
+        ...state,
+        [payload]: (state[payload] || 0) - 1,
+      };
     default:
       return state;
   }

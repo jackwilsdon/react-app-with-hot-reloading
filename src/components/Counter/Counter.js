@@ -27,18 +27,28 @@ Counter.defaultProps = {
   value: null,
 };
 
-const mapStateToProps = state => ({
-  value: getValue(state),
+const mapStateToProps = (state, { identifier }) => ({
+  value: getValue(state, identifier),
 });
 
-const mapDispatchToProps = {
-  onAdd: increment,
-  onSubtract: decrement,
+const mapDispatchToProps = (dispatch, { identifier }) => ({
+  onAdd: () => dispatch(increment(identifier)),
+  onSubtract: () => dispatch(decrement(identifier)),
+});
+
+const ConnectedCounter = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Counter);
+
+ConnectedCounter.propTypes = {
+  identifier: PropTypes.string,
+};
+
+ConnectedCounter.defaultProps = {
+  identifier: 'default',
 };
 
 export { Counter };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Counter);
+export default ConnectedCounter;
