@@ -1,7 +1,8 @@
-import { COUNTER, HOME } from '../actions';
-import { Counter } from '../components';
+import { FIRST_PAGE, HOME, SECOND_PAGE } from '../actions';
+import { FirstPage, Home, SecondPage } from '../pages';
 
 export default {
-  [HOME]: Counter,
-  [COUNTER]: Counter,
+  [FIRST_PAGE]: FirstPage,
+  [HOME]: Home,
+  [SECOND_PAGE]: SecondPage,
 };
