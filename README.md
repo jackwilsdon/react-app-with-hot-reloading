@@ -8,6 +8,7 @@ React + Redux + Hot Reloading = :sparkles:
 * `yarn test` → run the unit tests
 * `yarn lint` → run the linters
 * `yarn prettify` → prettify the code
+* `yarn analyze` → analyze the output bundle size (requires a `yarn build` first)
 
 [Build Status]: https://travis-ci.org/jackwilsdon/react-app-with-hot-reloading.svg?branch=master
 [Travis CI]: https://travis-ci.org/jackwilsdon/react-app-with-hot-reloading
