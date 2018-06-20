@@ -1,7 +1,7 @@
 const { resolve, relative } = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
@@ -9,6 +9,7 @@ const paths = require('./paths');
 const webpack = require('webpack');
 
 module.exports = {
+  mode: 'production',
   bail: true,
   devtool: 'source-map',
   context: __dirname,
@@ -63,25 +64,18 @@ module.exports = {
           },
           {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract({
-              fallback: {
-                loader: 'style-loader',
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader',
                 options: {
-                  hmr: false,
+                  importLoaders: 1,
+                  minimize: true,
+                  sourceMap: true,
                 },
               },
-              use: [
-                {
-                  loader: 'css-loader',
-                  options: {
-                    importLoaders: 1,
-                    minimize: true,
-                    sourceMap: true,
-                  },
-                },
-                'postcss-loader',
-              ],
-            }),
+              'postcss-loader',
+            ],
           },
           {
             loader: 'file-loader',
@@ -115,20 +109,7 @@ module.exports = {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production'),
       },
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      mangle: {
-        safari10: true,
-      },
-      output: {
-        comments: false,
-        ascii_only: true,
-      },
-      sourceMap: true,
-    }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'static/css/[name].[contenthash:8].css',
     }),
     new ManifestPlugin({

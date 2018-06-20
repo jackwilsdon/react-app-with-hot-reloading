@@ -2,13 +2,14 @@ const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
-const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const WatchMissingNodeModulesPlugin = require('./webpack/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const paths = require('./paths');
 const { resolve } = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  mode: 'development',
   devtool: 'cheap-module-source-map',
   context: __dirname,
   entry: [`./polyfills`, 'react-dev-utils/webpackHotDevClient', paths.index],
