@@ -146,6 +146,7 @@ module.exports = {
             loader: require.resolve('babel-loader'),
             options: {
               compact: true,
+              plugins: ['transform-export-default-name'],
             },
           },
           // The notation here is somewhat confusing.
