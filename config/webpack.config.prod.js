@@ -1,4 +1,4 @@
-const { resolve, relative } = require('path');
+const { relative, resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -115,6 +115,8 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
-    new StylelintPlugin({ files: [resolve(paths.src, '**/*.css')] }),
+    new StylelintPlugin({
+      files: [relative(__dirname, resolve(paths.src, '**/*.css'))],
+    }),
   ],
 };

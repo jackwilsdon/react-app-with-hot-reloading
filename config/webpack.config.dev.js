@@ -1,3 +1,4 @@
+const { relative, resolve } = require('path');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
@@ -5,7 +6,6 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('./webpack/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const paths = require('./paths');
-const { resolve } = require('path');
 const webpack = require('webpack');
 
 module.exports = {
@@ -95,7 +95,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
     new WatchMissingNodeModulesPlugin(paths.nodeModules),
-    new StylelintPlugin({ files: [resolve(paths.src, '**/*.css')] }),
+    new StylelintPlugin({
+      files: [relative(__dirname, resolve(paths.src, '**/*.css'))],
+    }),
   ],
   performance: {
     hints: false,
