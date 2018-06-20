@@ -41,6 +41,7 @@
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
     "style-loader": "^0.21.0",
+    "stylelint": "^9.3.0",
     "stylelint-webpack-plugin": "^0.10.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.12.0",
@@ -104,7 +105,6 @@
     "enzyme-to-json": "^3.3.4",
     "prettier": "^1.13.5",
     "prettier-check": "^2.0.0",
-    "source-map-explorer": "^1.5.0",
-    "stylelint": "^9.3.0"
+    "source-map-explorer": "^1.5.0"
   }
 }
