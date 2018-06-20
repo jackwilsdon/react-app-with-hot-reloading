@@ -4,17 +4,14 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
+const paths = require('./paths');
 const { resolve } = require('path');
 const webpack = require('webpack');
 
 module.exports = {
   devtool: 'cheap-module-source-map',
   context: __dirname,
-  entry: [
-    `./polyfills`,
-    'react-dev-utils/webpackHotDevClient',
-    `../src/index.js`,
-  ],
+  entry: [`./polyfills`, 'react-dev-utils/webpackHotDevClient', paths.index],
   output: {
     filename: 'static/js/bundle.js',
     chunkFilename: 'static/js/[name].chunk.js',
@@ -24,11 +21,7 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    plugins: [
-      new ModuleScopePlugin(resolve(__dirname, '../src'), [
-        resolve(__dirname, '../package.json'),
-      ]),
-    ],
+    plugins: [new ModuleScopePlugin(paths.src, [paths.package])],
   },
   module: {
     strictExportPresence: true,
@@ -44,7 +37,7 @@ module.exports = {
             loader: 'eslint-loader',
           },
         ],
-        include: resolve(__dirname, '../src'),
+        include: paths.src,
       },
       {
         oneOf: [
@@ -58,7 +51,7 @@ module.exports = {
           },
           {
             test: /\.(js|jsx)$/,
-            include: resolve(__dirname, '../src'),
+            include: paths.src,
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
@@ -90,7 +83,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, '../public/index.html'),
+      template: paths.html,
     }),
     new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
@@ -100,8 +93,8 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
-    new WatchMissingNodeModulesPlugin(resolve(__dirname, '../node_modules')),
-    new StylelintPlugin({ files: ['src/**/*.css'] }),
+    new WatchMissingNodeModulesPlugin(paths.nodeModules),
+    new StylelintPlugin({ files: [resolve(paths.src, '**/*.css')] }),
   ],
   performance: {
     hints: false,

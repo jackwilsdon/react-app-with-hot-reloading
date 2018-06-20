@@ -5,33 +5,27 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const eslintFormatter = require('react-dev-utils/eslintFormatter');
+const paths = require('./paths');
 const webpack = require('webpack');
 
 module.exports = {
   bail: true,
   devtool: 'source-map',
   context: __dirname,
-  entry: ['./polyfills', resolve(__dirname, '../src/index.js')],
+  entry: ['./polyfills', paths.index],
   output: {
-    path: resolve(__dirname, '../build'),
+    path: paths.build,
     filename: 'static/js/[name].[chunkhash:8].js',
     chunkFilename: 'static/js/[name].[chunkhash:8].chunk.js',
     // We inferred the "public path" (such as / or /my-project) from homepage.
     publicPath: '/',
     // Point sourcemap entries to original disk location (format as URL on Windows)
     devtoolModuleFilenameTemplate: info =>
-      relative(resolve(__dirname, '../src'), info.absoluteResourcePath).replace(
-        /\\/g,
-        '/',
-      ),
+      relative(paths.src, info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
-    plugins: [
-      new ModuleScopePlugin(resolve(__dirname, '../src'), [
-        resolve(__dirname, '../package.json'),
-      ]),
-    ],
+    plugins: [new ModuleScopePlugin(paths.src, [paths.package])],
   },
   module: {
     strictExportPresence: true,
@@ -47,7 +41,7 @@ module.exports = {
             loader: 'eslint-loader',
           },
         ],
-        include: resolve(__dirname, '../src'),
+        include: paths.src,
       },
       {
         oneOf: [
@@ -61,7 +55,7 @@ module.exports = {
           },
           {
             test: /\.(js|jsx)$/,
-            include: resolve(__dirname, '../src'),
+            include: paths.src,
             loader: 'babel-loader',
             options: {
               compact: true,
@@ -102,7 +96,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve(__dirname, '../public/index.html'),
+      template: paths.html,
       minify: {
         collapseWhitespace: true,
         keepClosingSlash: true,
@@ -140,6 +134,6 @@ module.exports = {
     new ManifestPlugin({
       fileName: 'asset-manifest.json',
     }),
-    new StylelintPlugin({ files: ['src/**/*.css'] }),
+    new StylelintPlugin({ files: [resolve(paths.src, '**/*.css')] }),
   ],
 };
