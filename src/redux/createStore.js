@@ -10,7 +10,7 @@ export default (initialState = {}) => {
     initialState,
     process.env.NODE_ENV === 'production' ||
     !window.__REDUX_DEVTOOLS_EXTENSION__
-      ? null
+      ? undefined
       : window.__REDUX_DEVTOOLS_EXTENSION__({
           actionCreators: actions,
         }),
