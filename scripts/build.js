@@ -52,12 +52,7 @@ measureFileSizesBeforeBuild(paths.build)
         console.log(
           '\nSearch for the ' +
             chalk.underline(chalk.yellow('keywords')) +
-            ' to learn more about each warning.',
-        );
-        console.log(
-          'To ignore, add ' +
-            chalk.cyan('// eslint-disable-next-line') +
-            ' to the line before.\n',
+            ' to learn more about each warning.\n',
         );
       } else {
         console.log(chalk.green('Compiled successfully.\n'));
