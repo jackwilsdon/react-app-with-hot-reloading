@@ -12,7 +12,11 @@ module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   context: __dirname,
-  entry: [`./polyfills`, 'react-dev-utils/webpackHotDevClient', paths.clientIndex],
+  entry: [
+    `./polyfills`,
+    'react-dev-utils/webpackHotDevClient',
+    paths.clientIndex,
+  ],
   output: {
     filename: 'static/js/bundle.js',
     chunkFilename: 'static/js/[name].chunk.js',
@@ -38,7 +42,7 @@ module.exports = {
             loader: 'eslint-loader',
           },
         ],
-        include: paths.src,
+        include: [paths.client, paths.shared],
       },
       {
         oneOf: [
@@ -52,7 +56,7 @@ module.exports = {
           },
           {
             test: /\.(js|jsx)$/,
-            include: paths.src,
+            include: [paths.client, paths.shared],
             loader: 'babel-loader',
             options: {
               cacheDirectory: true,
@@ -96,7 +100,10 @@ module.exports = {
     new CaseSensitivePathsPlugin(),
     new WatchMissingNodeModulesPlugin(paths.nodeModules),
     new StylelintPlugin({
-      files: [relative(__dirname, resolve(paths.src, '**/*.css'))],
+      files: [
+        relative(__dirname, resolve(paths.client, '**/*.css')),
+        relative(__dirname, resolve(paths.shared, '**/*.css')),
+      ],
     }),
   ],
   performance: {

@@ -42,7 +42,7 @@ module.exports = {
             loader: 'eslint-loader',
           },
         ],
-        include: paths.src,
+        include: [paths.client, paths.shared],
       },
       {
         oneOf: [
@@ -56,7 +56,7 @@ module.exports = {
           },
           {
             test: /\.(js|jsx)$/,
-            include: paths.src,
+            include: [paths.client, paths.shared],
             loader: 'babel-loader',
             options: {
               compact: true,
@@ -116,7 +116,10 @@ module.exports = {
       fileName: 'asset-manifest.json',
     }),
     new StylelintPlugin({
-      files: [relative(__dirname, resolve(paths.src, '**/*.css'))],
+      files: [
+        relative(__dirname, resolve(paths.client, '**/*.css')),
+        relative(__dirname, resolve(paths.shared, '**/*.css')),
+      ],
     }),
   ],
 };

@@ -10,6 +10,7 @@ module.exports = {
   html: resolveApp('public/index.html'),
   clientIndex: resolveApp('src/client/index.js'),
   client: resolveApp('src/client'),
+  shared: resolveApp('src/shared'),
   package: resolveApp('package.json'),
   src: resolveApp('src'),
   yarnLock: resolveApp('yarn.lock'),
