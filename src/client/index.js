@@ -1,7 +1,7 @@
 import './index.css';
-import HotApp from './components/HotApp';
+import HotApp from '../shared/components/HotApp';
 import React from 'react';
-import { createStore } from './redux';
+import { createStore } from '../shared/redux';
 import { render } from 'react-dom';
 
 const store = createStore();

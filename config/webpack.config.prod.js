@@ -13,7 +13,7 @@ module.exports = {
   bail: true,
   devtool: 'source-map',
   context: __dirname,
-  entry: ['./polyfills', paths.index],
+  entry: ['./polyfills', paths.client],
   output: {
     path: paths.build,
     filename: 'static/js/[name].[chunkhash:8].js',

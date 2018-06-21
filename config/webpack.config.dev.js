@@ -12,7 +12,7 @@ module.exports = {
   mode: 'development',
   devtool: 'cheap-module-source-map',
   context: __dirname,
-  entry: [`./polyfills`, 'react-dev-utils/webpackHotDevClient', paths.index],
+  entry: [`./polyfills`, 'react-dev-utils/webpackHotDevClient', paths.client],
   output: {
     filename: 'static/js/bundle.js',
     chunkFilename: 'static/js/[name].chunk.js',

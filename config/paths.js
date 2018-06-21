@@ -8,7 +8,7 @@ module.exports = {
   build: resolveApp('build'),
   public: resolveApp('public'),
   html: resolveApp('public/index.html'),
-  index: resolveApp('src/index.js'),
+  client: resolveApp('src/client/index.js'),
   package: resolveApp('package.json'),
   src: resolveApp('src'),
   yarnLock: resolveApp('yarn.lock'),
