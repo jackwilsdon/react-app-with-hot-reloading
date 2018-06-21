@@ -1,4 +1,4 @@
-const config = require('./webpack.config.dev');
+const config = require('./webpack.client.config.dev');
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const paths = require('./paths');
